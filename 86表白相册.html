@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.obox{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				top: 100px;
+				left: 50%;
+				margin-left: -100px;
+				transform:perspective(1500px) rotateX(20deg) rotateY(30deg);
+				transform-style: preserve-3d;
+				animation: myobox 30s linear infinite;
+				backface-visibility:hidden;
+			}
+			.obox>div{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			.top{
+				background: url(img/tsy.jpg) 0px 0px/200px no-repeat;
+				transform: translateY(-100px) rotateX(90deg);
+			}
+			.bottom{
+				background: url(img/tsy.jpg) 0px 0px/200px no-repeat;
+				transform: translateY(100px) rotateX(270deg);
+			}
+			.prev{
+				background: url(img/tsy.jpg) 0px 0px/200px no-repeat;
+				transform: translateZ(100px);
+			}
+			.next{
+				background: url(img/tsy.jpg) 0px 0px/200px no-repeat;
+				transform: translateZ(-100px) rotateY(180deg);
+			}
+			.left{
+				background: url(img/tsy.jpg) 0px 0px/200px no-repeat;
+				transform: translateX(-100px) rotateY(270deg);
+			}
+			.right{
+				background: url(img/tsy.jpg) 0px 0px/200px no-repeat;
+				transform: translateX(100px) rotateY(90deg);
+			}
+			.box{
+				display: none;
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				top: 100px;
+				left: 50%;
+				margin-left: -50px;
+				transform:perspective(1500px) rotateX(20deg) rotateY(30deg);
+				transform-style: preserve-3d;
+				animation: mybox 30s linear infinite;
+				backface-visibility:hidden;
+			}
+			.box>div{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			.top1{
+				background: url(img/tsy.jpg) 0px 0px/200px no-repeat;
+				transform: translateY(-50px) rotateX(90deg);
+			}
+			.bottom1{
+				background: url(img/tsy.jpg) 0px 0px/200px no-repeat;
+				transform: translateY(50px) rotateX(270deg);
+			}
+			.prev1{
+				background: url(img/tsy.jpg) 0px 0px/200px no-repeat;
+				transform: translateZ(50px);
+			}
+			.next1{
+				background: url(img/tsy.jpg) 0px 0px/200px no-repeat;
+				transform: translateZ(-50px) rotateY(180deg);
+			}
+			.left1{
+				background: url(img/tsy.jpg) 0px 0px/200px no-repeat;
+				transform: translateX(-50px) rotateY(270deg);
+			}
+			.right1{
+				background: url(img/tsy.jpg) 0px 0px/200px no-repeat;
+				transform: translateX(50px) rotateY(90deg);
+			}
+			@keyframes mybox{
+				from{transform:perspective(1000px) rotateX(20deg) rotateY(30deg);}
+				to{transform:perspective(1000px) rotateX(520deg) rotateY(530deg);}
+			}
+			@keyframes myobox{
+				from{transform:perspective(1000px) rotateX(20deg) rotateY(30deg);}
+				to{transform:perspective(1000px) rotateX(520deg) rotateY(530deg);}
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var obox = document.querySelector(".obox");
+				var box = document.querySelector(".box");
+				var top = document.querySelector(".top");
+				var bottom = document.querySelector(".bottom");
+				var left = document.querySelector(".left");
+				var right = document.querySelector(".right");
+				var prev = document.querySelector(".prev");
+				var next = document.querySelector(".next");
+				obox.onmouseenter=function(){
+					obox.style.animationPlayState="paused";
+					top.style.transform="translateY(-200px) rotateX(90deg)";
+					bottom.style.transform="translateY(200px) rotateX(270deg)";
+					left.style.transform="translateX(-200px) rotateY(270deg)";
+					right.style.transform="translateX(200px) rotateY(90deg)";
+					prev.style.transform="translateZ(200px)";
+					next.style.transform="translateZ(-200px) rotateY(180deg)";
+					box.style.display="block";
+					
+				}
+				obox.onmouseleave=function(){
+					obox.style.animationPlayState="running";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="obox">
+			<div class="top">上</div>
+			<div class="bottom">下</div>
+			<div class="left">左</div>
+			<div class="right">右</div>
+			<div class="prev">前</div>
+			<div class="next">后</div>
+		</div>
+		<div class="box">
+			<div class="top1">上</div>
+			<div class="bottom1">下</div>
+			<div class="left1">左</div>
+			<div class="right1">右</div>
+			<div class="prev1">前</div>
+			<div class="next1">后</div>
+		</div>
+	</body>
+</html>
